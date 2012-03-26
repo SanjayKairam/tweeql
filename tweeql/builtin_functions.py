@@ -180,7 +180,6 @@ class Location:
                     break
             else:
                 print "Problemz?"
-                break
         except URLError:
             e = sys.exc_info()[1]
             print "Unable to connect to GeoNames: %s" % (e)
