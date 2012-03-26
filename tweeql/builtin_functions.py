@@ -174,8 +174,12 @@ class Location:
         latlng = None
         try:
             g = Location.gn.geocode(loc.encode('utf-8'), exactly_one=False)
-            for place, (lat, lng) in g:
-                latlng = (lat, lng)
+            if g:
+                for place, (lat, lng) in g:
+                    latlng = (lat, lng)
+                    break
+            else:
+                print "Problemz?"
                 break
         except URLError:
             e = sys.exc_info()[1]
